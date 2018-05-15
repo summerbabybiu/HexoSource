@@ -1,0 +1,44 @@
+#title
+title: summerbaby
+# Header
+menu:
+    Home : /
+    About : /about
+    Tags : /tags
+    Archives : /archives
+# title
+header:
+    aboutHeader: Chat
+    aboutInformation: Social
+    aboutFriendlink: Talent
+
+# author chat
+chat: oh~my baby~baby~oh~
+
+# SubNav
+subnav:
+  gitHub: https://github.com/summerbabybiu
+
+# friendlink
+friendlink:
+    ahonn的博客: http://www.ahonn.me
+    刘帆帆的博客: http://henbukexue.science
+# read more
+excerpt_link: more >>
+
+# favicon
+favicon: http://wx4.sinaimg.cn/mw690/510f8168ly8fperdg2r7cj20yi0yiq7h.jpg
+
+# Baidu Analytics
+# baidu_analytics: c21994907883f37ffd80e13627dd4faa
+
+# Google Analytics
+# google_analytics: UA-75314797-1
+
+# comments
+disqus: summerbaby
+
+# photo link
+aboutPhoto: http://7xp1k3.com1.z0.glb.clouddn.com/156_1.jpg
+tagPhoto: http://7xp1k3.com1.z0.glb.clouddn.com/83_1.jpg
+archivePhoto: http://7xp1k3.com1.z0.glb.clouddn.com/208_1.jpg
