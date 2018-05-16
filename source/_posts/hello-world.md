@@ -93,4 +93,49 @@ date: 2018-8-15 18:11:45
     缺点： 每一次修改都要手动执行一遍上面的命令。
     
 - 一劳永逸
-    利用 travis-ci 实现自动化部署。。。。
+    利用 travis-ci 实现自动化部署。。
+    首先以 GitHub 账号登录 [https://travis-ci.org](https://travis-ci.org)，找到你想要部署的项目，开启并前往设置,如下图：
+    ![](/images/test.png)
+    要想让 travis-ci 去部署，就要将您的 GitHub token 添加到项目的设置之中。
+    先前往 GitHub 生成你的 token， 如下图：
+    ![](/images/token.png)
+    然后将 token 配置到项目设置中， 如下图：
+    ![](/images/varibale.png)
+    
+    以上步骤完成之后，就可以去写脚本啦~~
+    在项目的根目录下创建 `.travis.yml` 文件， 内容大致如下：
+    ```text
+    language: node_js  #设置语言
+    
+    node_js: stable  #设置相应的版本
+    
+    install:
+      - npm install  #安装hexo及插件
+    
+    script:
+      - hexo cl  #清除
+      - hexo g  #生成
+    
+    after_script:
+      - cd ./public
+      - git init
+      - git config user.name "summerbaby"  #修改name
+      - git config user.email "xxxx@qq.com"  #修改email
+      - git add .
+      - git commit -m "update"
+      - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master  #GH_TOKEN是在Travis中配置token的名称
+    
+    branches:
+      only:
+        - master 
+    env:
+     global:
+       - GH_REF: github.com/summerbabybiu/summerbabybiu.github.io.git  #设置GH_REF，注意更改yourname
+
+    ```
+    部署脚本写完之后，提交代码，就可以去 https://travis-ci.org 查看部署进度啦~~~
+    
+    部署完之后，前往你的 https://username.github.io 查看你的博客。
+    
+### END
+撒花❀❀❀ 然后你就完成自己的博客啦啦啦啦😋
